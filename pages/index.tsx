@@ -500,6 +500,9 @@ const Home: React.FC = () => {
                 <br />
                 Stanford University
               </p>
+              <p className="italic">
+                This project was made for the class CS 448B Data Visualization
+              </p>
             </section>
             <section>
               <h2>Data and Methods</h2>
