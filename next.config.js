@@ -10,6 +10,8 @@ const nextConfig = {
       transform: "lodash/{{member}}",
     },
   },
+  compress: false,
+  output: "standalone",
 };
 
 module.exports = withBundleAnalyzer(nextConfig);
