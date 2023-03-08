@@ -12,6 +12,16 @@ const nextConfig = {
   },
   compress: false,
   output: "standalone",
+  async redirects() {
+    return [
+      {
+        source: "/",
+        destination:
+          "/adaptation-and-adoption-analyzing-gpu-trends-among-pc-gamers-during-covid-19-and-crypto-craze",
+        permanent: false,
+      },
+    ];
+  },
 };
 
 module.exports = withBundleAnalyzer(nextConfig);
