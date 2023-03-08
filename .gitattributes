@@ -1,0 +1,5 @@
+datasets/raw/ETH-USD.csv filter=lfs diff=lfs merge=lfs -text
+datasets/raw/covid-19-epidemiology.csv filter=lfs diff=lfs merge=lfs -text
+datasets/raw/covid-19-index.csv filter=lfs diff=lfs merge=lfs -text
+datasets/raw/gpu-benchmarks.csv filter=lfs diff=lfs merge=lfs -text
+datasets/raw/steam-hardware-surveys.csv filter=lfs diff=lfs merge=lfs -text
