@@ -21,8 +21,8 @@ const parallaxPageConfig = {
     end: 12.5,
   },
   gpuCrypto: {
-    start: 13.89,
-    end: 17.39,
+    start: 13.93,
+    end: 17.43,
   },
 };
 
@@ -145,11 +145,11 @@ const Home: React.FC = () => {
       <article>
         <Parallax
           ref={parallaxRef}
-          pages={20.84}
-          className="relative bg-white dark:bg-black"
-          innerStyle={{ zIndex: 10, pointerEvents: "none" }}
+          pages={21.06}
+          className="relative"
+          innerStyle={{ zIndex: 50, pointerEvents: "none" }}
         >
-          <ParallaxLayer className={layerClassName} offset={0}>
+          <ParallaxLayer className={`${layerClassName}`} offset={0}>
             <h1 style={{ lineHeight: 1.25 }}>
               Adaptation and Adoption: Analyzing GPU Trends Among PC Gamers
               During COVID-19 and Crypto Craze
@@ -173,7 +173,7 @@ const Home: React.FC = () => {
               adoption of both new and outgoing GPUs, we look into the evolving landscape of PC gaming
               hardware.`}
             </p>
-            <section>
+            <section className="bg-white dark:bg-black pb-2">
               <h2>Overview</h2>
               <p>
                 {`To gain a comprehensive understanding of PC gaming hardware during the COVID-19 pandemic and crypto
@@ -197,7 +197,7 @@ const Home: React.FC = () => {
             </section>
           </ParallaxLayer>
           <ParallaxLayer
-            className={`${layerClassName} items-center flex z-50`}
+            className={`${layerClassName} items-center flex z-30`}
             sticky={{
               start: parallaxPageConfig.gpuShares.start,
               end: parallaxPageConfig.gpuShares.end,
@@ -256,7 +256,7 @@ const Home: React.FC = () => {
                 of the 20 series equivalent, the GTX 1650.
               </p>
             </section>
-            <section>
+            <section className="bg-white dark:bg-black pb-2">
               <h2>Performance vs Popularity</h2>
               <p>
                 Despite the dominance of NVIDIA and AMD in the gaming GPU
@@ -313,7 +313,7 @@ const Home: React.FC = () => {
                 PC gamers.
               </p>
             </section>
-            <section>
+            <section className="bg-white dark:bg-black pb-2">
               <h2>The Pandemic</h2>
               <p>
                 The COVID-19 pandemic has had far-reaching consequences,
@@ -438,7 +438,7 @@ const Home: React.FC = () => {
             className={`${layerClassName}`}
             offset={parallaxPageConfig.gpuCovid.end + 0.9}
           >
-            <section>
+            <section className="bg-white dark:bg-black pb-2">
               <h2>Crypto Craze</h2>
               <p>
                 As the COVID-19 pandemic caused disruptions to global supply
@@ -457,7 +457,7 @@ const Home: React.FC = () => {
             </section>
           </ParallaxLayer>
           <ParallaxLayer
-            className={`${layerClassName} items-center flex z-50`}
+            className={`${layerClassName} items-center flex z-30`}
             sticky={{
               start: parallaxPageConfig.gpuCrypto.start,
               end: parallaxPageConfig.gpuCrypto.end,
