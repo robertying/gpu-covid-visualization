@@ -13,16 +13,16 @@ const parallaxPageConfig = {
     end: 5,
   },
   gpuPerformance: {
-    start: 6.7,
-    end: 7,
+    start: 6.74,
+    end: 7.04,
   },
   gpuCovid: {
-    start: 8.8,
-    end: 12.4,
+    start: 8.9,
+    end: 12.5,
   },
   gpuCrypto: {
-    start: 13.7,
-    end: 17.2,
+    start: 13.89,
+    end: 17.39,
   },
 };
 
@@ -45,12 +45,12 @@ const parallaxTimeLineConfig = [
       "Sandra Lindsay, a nurse in New York, becomes the first American outside of clinical trials to receive a COVID-19 vaccine.",
   },
   {
-    offset: 1.29,
+    offset: 1.3,
     date: "Feb 25, 2021",
     content: "NVIDIA GeForce RTX 3060 was released.",
   },
   {
-    offset: 1.53,
+    offset: 1.57,
     date: "May 18, 2021",
     content:
       "NVIDIA officially announced new RTX 3080, RTX 3070, RTX 3060 Ti that include the cryptocurrency mining hash rate limiter.",
@@ -146,7 +146,7 @@ const Home: React.FC = () => {
       <article>
         <Parallax
           ref={parallaxRef}
-          pages={20.1}
+          pages={20.84}
           className="relative"
           innerStyle={{ zIndex: 10, pointerEvents: "none" }}
         >
@@ -155,7 +155,7 @@ const Home: React.FC = () => {
               Adaptation and Adoption: Analyzing GPU Trends Among PC Gamers
               During COVID-19 and Crypto Craze
             </h1>
-            <time className="italic">March 2023</time>
+            <time className="italic font-medium">March 2023</time>
             <p>
               Over the past three years, the world has been facing unprecedented
               challenges due to the COVID-19 pandemic and the resulting economic
@@ -355,8 +355,8 @@ const Home: React.FC = () => {
                       (parallaxPageConfig.gpuCovid.start +
                         parallaxPageConfig.gpuCovid.end) /
                         2,
-                      parallaxPageConfig.gpuCovid.end - 0.3,
-                      0.1,
+                      parallaxPageConfig.gpuCovid.end - 0.25,
+                      0.15,
                       0
                     )(parallaxOffset)) * 48
               }px)`,
@@ -440,6 +440,7 @@ const Home: React.FC = () => {
             offset={parallaxPageConfig.gpuCovid.end + 0.9}
           >
             <section>
+              <h2>Crypto Craze</h2>
               <p>
                 As the COVID-19 pandemic caused disruptions to global supply
                 chains and chip shortages, the gaming industry has been facing
@@ -479,9 +480,33 @@ const Home: React.FC = () => {
             offset={parallaxPageConfig.gpuCrypto.end + 0.9}
           >
             <section>
+              <p>
+                {`Despite the global pandemic, the cryptocurrency market continued
+                to surge, with Ethereum's price skyrocketing from $200 to a peak
+                of $4000 in November 2021. However, this craze didn't seem to
+                have much impact on the GPU market share, which was still
+                dominated by the 50 and 60 suffixed models. Surprisingly, the
+                demand for computing power for ETH mining didn't significantly
+                affect the adoption of 30 series GPUs, as most GPUs that could
+                handle mining were high-end models with negligible shares during
+                the period. Additionally, large-scale miners typically use
+                specialized computer chips (ASIC, application-specific integrated
+                  circuit), which aren't in direct competition with consumer
+                GPUs. It's worth noting that NVIDIA also released several GPUs
+                that limited cryptocurrency mining hash rate in May 2021.`}
+              </p>
+              <p>
+                Therefore, it seems that gamers who blamed crypto for the
+                shortage of GPUs may have had a weaker argument, as the supply
+                chain issues and scalper hoarding might be the main factors
+                impacting availability. Despite the hype around cryptocurrency,
+                the GPU market remained largely unaffected by the craze.
+              </p>
+            </section>
+            <section>
               <h2>Epilogue</h2>
               <p>
-                {`In conclusion, the COVID-19 pandemic has had profound effects on the global supply chains, causing a severe shortage of computer chips and impacting the production and availability of GPUs, which are critical components in gaming PCs. Our analysis using data from Steam's hardware surveys has shown that NVIDIA GPUs continue to be the top choice among PC gamers, followed by AMD and Intel. The trends in GPU adoption among PC gamers during the pandemic and crypto craze has shown that the adoption of the new RTX 30 series was not as good as the GTX 10 series, due to limited availability and increased prices, except for the middle-level GPUs such as RTX 3060, RTX 3060 Ti, and RTX 3050. Interestingly, the crypto craze did not seem to have much impact on 30 series GPU adoption, with 60 and 50 suffixed models still taking the first places. Overall, our analysis provides valuable insights into the ways in which the pandemic and crypto prices have affected the adoption of different types of graphics cards among PC gamers, emphasizing that the adoption of GPUs is not only driven by performance but also availability and pricing.`}
+                {`In conclusion, the COVID-19 pandemic has had profound effects on the global supply chains, causing a severe shortage of computer chips and impacting the production and availability of GPUs, which are critical components in gaming PCs. Our analysis using data from Steam's hardware surveys has shown that NVIDIA GPUs continue to be the top choice among PC gamers, followed by AMD and Intel. The trends in GPU adoption among PC gamers during the pandemic and crypto craze has shown that the adoption of the new RTX 30 series was not as good as the GTX 10 series, due to limited availability and increased prices, except for the mid-level GPUs such as RTX 3060, RTX 3060 Ti, and RTX 3050. Interestingly, the crypto craze did not seem to have much impact on 30 series GPU adoption. Overall, our analysis provides valuable insights into the ways in which the pandemic and crypto prices have affected the adoption of different types of graphics cards among PC gamers, emphasizing that the adoption of GPUs is not only driven by performance but also availability and pricing.`}
               </p>
             </section>
             <section>
@@ -501,7 +526,7 @@ const Home: React.FC = () => {
                 Stanford University
               </p>
               <p className="italic">
-                This project was made for the class CS 448B Data Visualization
+                This project was made for the class CS 448B Data Visualization.
               </p>
             </section>
             <section>

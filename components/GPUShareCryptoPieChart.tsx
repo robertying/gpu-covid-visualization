@@ -113,7 +113,7 @@ const GPUShareCryptoPieChart: React.FC<GPUShareCryptoPieChartProps> = ({
       pieData
         .filter(
           (d) =>
-            outerRadius > height / 4 &&
+            outerRadius > height / 5 &&
             d.endAngle - d.startAngle > 0.15 &&
             d.data.manufacturer !== "Other"
         )
@@ -201,6 +201,7 @@ const GPUShareCryptoPieChart: React.FC<GPUShareCryptoPieChartProps> = ({
       opacity: 0,
       left: d.left,
       top: d.top,
+      marginRight: -9999,
     }),
     enter: (d) => ({
       opacity: 1,

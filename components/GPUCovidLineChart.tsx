@@ -312,6 +312,12 @@ const GPUCovidLineChart: React.FC<GPUCovidLineChartProps> = ({
     xScale,
   ]);
 
+  const handleMouseOut = () => {
+    setHoveredDate(null);
+    setPopperReferenceElement(null);
+    d3.select(tooltipLineRef.current).attr("x1", -1).attr("x2", -1);
+  };
+
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
     const rect = (e.target as SVGSVGElement).getBoundingClientRect();
     const x = e.clientX - rect.left;
@@ -323,9 +329,7 @@ const GPUCovidLineChart: React.FC<GPUCovidLineChartProps> = ({
       y < Margins.top ||
       y > height - Margins.bottom
     ) {
-      setHoveredDate(null);
-      setPopperReferenceElement(null);
-      d3.select(tooltipLineRef.current).attr("x1", -1).attr("x2", -1);
+      handleMouseOut();
       return;
     }
 
@@ -492,6 +496,8 @@ const GPUCovidLineChart: React.FC<GPUCovidLineChartProps> = ({
         <div
           className="absolute inset-0 pointer-events-auto"
           onMouseMove={handleMouseMove}
+          onMouseOver={handleMouseMove}
+          onMouseOut={handleMouseOut}
         />
         <div
           ref={popperRef}
