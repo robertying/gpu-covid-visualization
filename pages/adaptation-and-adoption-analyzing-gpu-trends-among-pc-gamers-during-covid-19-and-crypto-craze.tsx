@@ -127,7 +127,7 @@ const Home: React.FC = () => {
   }, []);
 
   const layerClassName =
-    "mx-auto py-16 px-6 pointer-events-none prose sm:prose-xs md:prose-sm lg:prose-md xl:prose-lg 2xl:prose-xl";
+    "mx-auto py-20 px-6 pointer-events-none prose dark:prose-invert bg-transparent sm:prose-lg md:prose-lg lg:prose-lg xl:prose-lg 2xl:prose-xl";
 
   return (
     <>
@@ -147,7 +147,7 @@ const Home: React.FC = () => {
         <Parallax
           ref={parallaxRef}
           pages={20.84}
-          className="relative"
+          className="relative bg-white dark:bg-black"
           innerStyle={{ zIndex: 10, pointerEvents: "none" }}
         >
           <ParallaxLayer className={layerClassName} offset={0}>
@@ -198,7 +198,7 @@ const Home: React.FC = () => {
             </section>
           </ParallaxLayer>
           <ParallaxLayer
-            className={`${layerClassName} items-center flex`}
+            className={`${layerClassName} items-center flex z-50`}
             sticky={{
               start: parallaxPageConfig.gpuShares.start,
               end: parallaxPageConfig.gpuShares.end,
@@ -221,9 +221,9 @@ const Home: React.FC = () => {
               className={`${layerClassName} justify-end items-center flex`}
               offset={config.offset + parallaxPageConfig.gpuShares.start}
             >
-              <div className="bg-white w-64 shadow-xl rounded-lg px-4 -mr-72">
+              <div className="bg-white dark:bg-black w-64 shadow-xl dark:shadow-none dark:border-gray-600 dark:border-2 rounded-lg px-4 -mr-72">
                 <p
-                  className="prose-md font-semibold"
+                  className="prose-md dark:prose-invert font-semibold"
                   style={{ marginBottom: "0.25em" }}
                 >
                   {config.date}
@@ -458,7 +458,7 @@ const Home: React.FC = () => {
             </section>
           </ParallaxLayer>
           <ParallaxLayer
-            className={`${layerClassName} items-center flex`}
+            className={`${layerClassName} items-center flex z-50`}
             sticky={{
               start: parallaxPageConfig.gpuCrypto.start,
               end: parallaxPageConfig.gpuCrypto.end,

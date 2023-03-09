@@ -290,7 +290,7 @@ const GPUCovidLineChart: React.FC<GPUCovidLineChartProps> = ({
             .attr("d", (d) => newCaseLine(d.values))
             .attr("fill", "none")
             .attr("opacity", 0)
-            .attr("stroke", "black")
+            .attr("stroke", "currentColor")
             .attr("stroke-width", "0.1rem")
             .style("pointer-events", "none"),
         (update) =>
@@ -383,7 +383,7 @@ const GPUCovidLineChart: React.FC<GPUCovidLineChartProps> = ({
     return (
       <div
         ref={parentRef}
-        className="w-full flex justify-center items-center bg-gray-200"
+        className="w-full flex justify-center items-center bg-gray-200 dark:bg-gray-700"
         style={{ height }}
       >
         <div>Loading...</div>
@@ -430,7 +430,7 @@ const GPUCovidLineChart: React.FC<GPUCovidLineChartProps> = ({
           <Chip label={selectedCountries[0]} />
           {showCustomizedControls && (
             <button
-              className="bg-gray-200 hover:bg-gray-300 active:bg-opacity-60 font-semibold text-sm py-1 px-2 w-44 rounded"
+              className="bg-gray-200 hover:bg-gray-300 active:bg-opacity-60 dark:bg-gray-700 dark:hover:bg-gray-600 dark:active:bg-opacity-60 font-semibold text-sm py-1 px-2 w-44 rounded"
               onClick={handleToggleCovidDates}
             >
               Toggle COVID-19 Dates
@@ -446,7 +446,7 @@ const GPUCovidLineChart: React.FC<GPUCovidLineChartProps> = ({
           >
             <text
               textAnchor="center"
-              fill="black"
+              fill="currentColor"
               fontSize="0.75rem"
               fontWeight="bold"
               transform={`translate(${width / 2}, 40)`}
@@ -457,7 +457,7 @@ const GPUCovidLineChart: React.FC<GPUCovidLineChartProps> = ({
           <g ref={gpuAxisRef} transform={`translate(${Margins.left}, 0)`}>
             <text
               textAnchor="end"
-              fill="black"
+              fill="currentColor"
               fontSize="0.75rem"
               fontWeight="bold"
               transform={`translate(65, ${Margins.top - 20})`}
@@ -471,7 +471,7 @@ const GPUCovidLineChart: React.FC<GPUCovidLineChartProps> = ({
           >
             <text
               textAnchor="end"
-              fill="black"
+              fill="currentColor"
               fontSize="0.75rem"
               fontWeight="bold"
               transform={`translate(55, ${Margins.top - 20})`}
@@ -483,13 +483,13 @@ const GPUCovidLineChart: React.FC<GPUCovidLineChartProps> = ({
           <g ref={covidLineRef} />
           <line
             ref={tooltipLineRef}
-            stroke="black"
+            stroke="currentColor"
             strokeWidth="0.1rem"
             strokeDasharray="0.5rem 0.5rem"
             opacity={0.5}
           />
         </svg>
-        <div className="w-full text-center text-xs italic text-gray-700 mt-4">
+        <div className="w-full text-center text-xs italic text-gray-700 dark:text-gray-200 mt-4">
           Hover over the chart to see the full GPU name and its share at the
           time
         </div>
@@ -505,7 +505,7 @@ const GPUCovidLineChart: React.FC<GPUCovidLineChartProps> = ({
           {...popperAttributes.popper}
         >
           {hoveredDate && (
-            <div className="bg-white rounded shadow-lg p-3 space-y-2">
+            <div className="bg-white dark:bg-black rounded shadow-lg dark:shadow-none dark:border-gray-600 dark:border p-3 space-y-2">
               <div className="text-sm font-semibold">
                 {dayjs(hoveredDate).format("MMM YYYY")}
               </div>
@@ -518,7 +518,7 @@ const GPUCovidLineChart: React.FC<GPUCovidLineChartProps> = ({
                     />
                     <div className="text-sm font-medium">{gpuData.name}</div>
                   </div>
-                  <div className="text-sm text-gray-500">
+                  <div className="text-sm text-gray-500 dark:text-gray-400">
                     {((gpuData.value?.percentage ?? 0) * 100).toFixed(2)}%
                   </div>
                 </div>

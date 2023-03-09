@@ -45,7 +45,7 @@ const DropdownSearch: React.FC<DropdownSearchProps> = ({
     <div className="relative flex items-center">
       <input
         ref={inputRef}
-        className="bg-gray-100 hover:bg-gray-300 font-semibold text-sm py-1 px-2 rounded w-full"
+        className="bg-gray-100 hover:bg-gray-300 dark:bg-gray-800 dark:hover:bg-gray-600 font-semibold text-sm py-1 px-2 rounded w-full"
         type="text"
         placeholder={placeholder}
         value={searchQuery}
@@ -53,7 +53,7 @@ const DropdownSearch: React.FC<DropdownSearchProps> = ({
       />
       {searchQuery && (
         <button
-          className="hover:bg-gray-300 active:bg-opacity-60 rounded-full w-4 h-4 absolute right-2 inset-y-0 my-auto"
+          className="hover:bg-gray-300 active:bg-opacity-60 dark:hover:bg-gray-600 dark:active:bg-opacity-60 rounded-full w-4 h-4 absolute right-2 inset-y-0 my-auto"
           onClick={() => setSearchQuery("")}
         >
           <svg
@@ -76,12 +76,18 @@ const DropdownSearch: React.FC<DropdownSearchProps> = ({
         style={{ ...popperStyles.popper, zIndex: 50 }}
         {...popperAttributes.popper}
       >
-        <div className="bg-white shadow-lg rounded text-sm" style={{ width }}>
+        <div
+          className={
+            "bg-white dark:bg-black shadow-lg dark:shadow-none dark:border-gray-600 dark:border rounded text-sm " +
+            (searchQuery ? "" : "invisible")
+          }
+          style={{ width }}
+        >
           {!searchQuery ? null : searchResults.length > 0 ? (
             searchResults.map((result) => (
               <button
                 key={result}
-                className="py-1 px-2 hover:bg-gray-200 active:bg-opacity-60 w-full text-left first-of-type:rounded-t last-of-type:rounded-b"
+                className="py-1 px-2 hover:bg-gray-200 active:bg-opacity-60 dark:hover:bg-gray-700 dark:active:bg-opacity-60 w-full text-left first-of-type:rounded-t last-of-type:rounded-b"
                 onClick={() => {
                   onAdd?.(result);
                   setSearchQuery("");

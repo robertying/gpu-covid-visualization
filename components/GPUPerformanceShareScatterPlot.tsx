@@ -155,6 +155,7 @@ const GPUPerformanceShareScatterPlot: React.FC<
             .attr("y", (d) => yScale(gpuBenchmarkData[d.name]) - 9)
             .attr("font-size", "0.5rem")
             .attr("opacity", 0)
+            .attr("fill", "currentColor")
             .style("text-anchor", "middle")
             .style("pointer-events", "none"),
         (update) =>
@@ -168,6 +169,7 @@ const GPUPerformanceShareScatterPlot: React.FC<
       .transition(t)
       .attr("x", (d) => xScale(d.percentage * 100))
       .attr("y", (d) => yScale(gpuBenchmarkData[d.name]) - 9)
+      .attr("fill", "currentColor")
       .attr("opacity", 0.9)
       .attr("font-size", "0.5rem");
   }, [data, xScale, yScale]);
@@ -210,7 +212,7 @@ const GPUPerformanceShareScatterPlot: React.FC<
     return (
       <div
         ref={parentRef}
-        className="w-full flex justify-center items-center bg-gray-200"
+        className="w-full flex justify-center items-center bg-gray-200 dark:bg-gray-700"
         style={{ height }}
       >
         <div>Loading...</div>
@@ -256,7 +258,7 @@ const GPUPerformanceShareScatterPlot: React.FC<
               onChange={handleDateChange}
             />
             <button
-              className="bg-gray-200 hover:bg-gray-300 active:bg-opacity-60 font-semibold text-base py-1 px-2 w-20 rounded"
+              className="bg-gray-200 hover:bg-gray-300 active:bg-opacity-60 dark:bg-gray-700 dark:hover:bg-gray-600 dark:active:bg-opacity-60 font-semibold text-base py-1 px-2 w-20 rounded"
               onClick={handleStartStop}
             >
               {playing ? "Pause" : "Resume"}
@@ -273,7 +275,7 @@ const GPUPerformanceShareScatterPlot: React.FC<
           >
             <text
               textAnchor="end"
-              fill="black"
+              fill="currentColor"
               fontSize="0.75rem"
               fontWeight="bold"
               x={width - Margins.right}
@@ -285,7 +287,7 @@ const GPUPerformanceShareScatterPlot: React.FC<
           <g ref={yAxisRef} transform={`translate(${Margins.left}, 0)`}>
             <text
               textAnchor="end"
-              fill="black"
+              fill="currentColor"
               fontSize="0.75rem"
               fontWeight="bold"
               transform={`translate(213, ${Margins.top - 15})`}
@@ -294,7 +296,7 @@ const GPUPerformanceShareScatterPlot: React.FC<
             </text>
           </g>
         </svg>
-        <div className="w-full text-center text-xs italic text-gray-700 mt-1">
+        <div className="w-full text-center text-xs italic text-gray-700 dark:text-gray-200 mt-1">
           Pause and hover over a dot to see the full GPU name, its benchmark and
           share
         </div>
@@ -305,7 +307,7 @@ const GPUPerformanceShareScatterPlot: React.FC<
         {...popperAttributes.popper}
       >
         {popperReferenceElement && (
-          <div className="bg-white rounded shadow-lg p-2">
+          <div className="bg-white dark:bg-black rounded shadow-lg dark:shadow-none dark:border-gray-600 dark:border p-2">
             <div className="text-sm font-semibold">
               {(popperReferenceElement as any).__data__.name}
             </div>

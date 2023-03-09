@@ -203,7 +203,7 @@ const GPUShareTreeMap: React.FC<GPUShareTreeMapProps> = ({
     return (
       <div
         ref={parentRef}
-        className="w-full flex justify-center items-center bg-gray-200"
+        className="w-full flex justify-center items-center bg-gray-200 dark:bg-gray-700"
         style={{ height }}
       >
         <div>Loading...</div>
@@ -252,7 +252,7 @@ const GPUShareTreeMap: React.FC<GPUShareTreeMapProps> = ({
       </div>
       <div ref={parentRef} className="w-full relative" style={{ height }}>
         <svg ref={svgRef} width="100%" height={height} />
-        <div className="w-full text-center text-xs italic text-gray-700 mt-1">
+        <div className="w-full text-center text-xs italic text-gray-700 dark:text-gray-200 mt-1">
           Hover over a rectangle to see the full GPU name and its share
         </div>
         <div className="pointer-events-none">
@@ -275,7 +275,7 @@ const GPUShareTreeMap: React.FC<GPUShareTreeMapProps> = ({
         {...popperAttributes.popper}
       >
         {popperReferenceElement && (
-          <div className="bg-white rounded shadow-lg p-2">
+          <div className="bg-white dark:bg-black text-black dark:text-white rounded shadow-lg dark:shadow-none dark:border-gray-600 dark:border p-2">
             <div className="text-sm font-semibold">
               {(popperReferenceElement as any).__data__.data.name}
             </div>

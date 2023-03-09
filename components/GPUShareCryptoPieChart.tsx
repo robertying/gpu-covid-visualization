@@ -240,7 +240,7 @@ const GPUShareCryptoPieChart: React.FC<GPUShareCryptoPieChartProps> = ({
     return (
       <div
         ref={parentRef}
-        className="w-full flex justify-center items-center bg-gray-200"
+        className="w-full flex justify-center items-center bg-gray-200 dark:bg-gray-700"
         style={{ height }}
       >
         <div>Loading...</div>
@@ -309,14 +309,14 @@ const GPUShareCryptoPieChart: React.FC<GPUShareCryptoPieChartProps> = ({
             transform={`translate(${width / 2}, ${height / 2})`}
           />
         </svg>
-        <div className="w-full text-center text-xs italic text-gray-700 mt-1">
+        <div className="w-full text-center text-xs italic text-gray-700 dark:text-gray-200 mt-1">
           Hover over a pie to see the full GPU name and its share
         </div>
         <div className="pointer-events-none">
           {labelTransitions((style, d) => (
             <animated.div
               key={d.data.name}
-              className="absolute text-black text-sm leading-none"
+              className="absolute text-black dark:text-white text-sm leading-none"
               style={style}
             >
               {getGPUName(d.data.name)}
@@ -330,7 +330,7 @@ const GPUShareCryptoPieChart: React.FC<GPUShareCryptoPieChartProps> = ({
         {...popperAttributes.popper}
       >
         {popperReferenceElement && (
-          <div className="bg-white rounded shadow-lg p-2">
+          <div className="bg-white dark:bg-black rounded shadow-lg dark:shadow-none dark:border-gray-600 dark:border p-2">
             <div className="text-sm font-semibold">
               {(popperReferenceElement as any).__data__.data.name}
             </div>
