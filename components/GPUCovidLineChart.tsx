@@ -16,10 +16,9 @@ import DropdownSearch from "./DropdownSearch";
 
 const Margins = { top: 40, right: 80, bottom: 40, left: 50 };
 const animationDuration = 600;
+
 const _60SeriesDates = [new Date("2016-07-01"), new Date("2023-03-01")];
 const _30SeriesDates = [new Date("2020-01-01"), new Date("2023-03-01")];
-const bisect = d3.bisector<GPUShareDatumWithDate, Date>((d) => d.date).left;
-
 const _30SeriesGpus = gpus.filter(
   (g) => g.startsWith("NVIDIA GeForce RTX 30") && !g.includes("Laptop")
 );
@@ -28,6 +27,8 @@ const _60SeriesGpus = [
   "NVIDIA GeForce RTX 2060",
   "NVIDIA GeForce GTX 1060",
 ];
+
+const bisect = d3.bisector<GPUShareDatumWithDate, Date>((d) => d.date).left;
 
 const getGPUName = (name: string) => {
   return name.substring(name.indexOf(" ") + 1);

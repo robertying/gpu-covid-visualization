@@ -100,6 +100,9 @@ function interpolateBlur(
   };
 }
 
+const layerClassName =
+  "mx-auto py-20 px-6 pointer-events-none prose dark:prose-invert bg-transparent sm:prose-lg md:prose-lg lg:prose-lg xl:prose-lg 2xl:prose-xl";
+
 const Home: React.FC = () => {
   const parallaxRef = useRef<IParallax>(null);
 
@@ -114,7 +117,6 @@ const Home: React.FC = () => {
       .current as HTMLDivElement;
     const handleScroll = throttle((e: Event) => {
       if (parallaxRef.current) {
-        //   console.log(parallaxRef.current.current / parallaxRef.current.space);
         setParallaxOffset(
           parallaxRef.current.current / parallaxRef.current.space
         );
@@ -125,9 +127,6 @@ const Home: React.FC = () => {
       parallaxContainer.removeEventListener("scroll", handleScroll);
     };
   }, []);
-
-  const layerClassName =
-    "mx-auto py-20 px-6 pointer-events-none prose dark:prose-invert bg-transparent sm:prose-lg md:prose-lg lg:prose-lg xl:prose-lg 2xl:prose-xl";
 
   return (
     <>
