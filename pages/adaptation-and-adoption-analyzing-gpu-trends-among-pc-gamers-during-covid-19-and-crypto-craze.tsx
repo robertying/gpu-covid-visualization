@@ -145,7 +145,7 @@ const Home: React.FC = () => {
       <article>
         <Parallax
           ref={parallaxRef}
-          pages={21.06}
+          pages={21.46}
           className="relative"
           innerStyle={{ zIndex: 50, pointerEvents: "none" }}
         >
