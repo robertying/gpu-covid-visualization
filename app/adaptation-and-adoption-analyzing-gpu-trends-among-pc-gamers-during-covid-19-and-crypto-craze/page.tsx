@@ -80,7 +80,7 @@ function interpolateBlur(
   start: number,
   end: number,
   startDelta: number,
-  endDelta: number
+  endDelta: number,
 ) {
   const a1 = start + startDelta;
   const a2 = end - endDelta;
@@ -119,7 +119,7 @@ const HomePage: React.FC = () => {
     const handleScroll = throttle((e: Event) => {
       if (parallaxRef.current) {
         setParallaxOffset(
-          parallaxRef.current.current / parallaxRef.current.space
+          parallaxRef.current.current / parallaxRef.current.space,
         );
       }
     }, 100);
@@ -335,7 +335,7 @@ const HomePage: React.FC = () => {
                       parallaxPageConfig.gpuCovid.end) /
                       2,
                     0.3,
-                    0.3
+                    0.3,
                   )(parallaxOffset)
                 : interpolateBlur(
                     (parallaxPageConfig.gpuCovid.start +
@@ -343,7 +343,7 @@ const HomePage: React.FC = () => {
                       2,
                     parallaxPageConfig.gpuCovid.end - 0.25,
                     0.15,
-                    0
+                    0,
                   )(parallaxOffset)) * 48
             }px)`,
           }}

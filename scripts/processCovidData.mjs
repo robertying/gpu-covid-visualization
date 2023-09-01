@@ -4,7 +4,7 @@ import { parseCSV } from "./parseCSV.mjs";
 
 const indexData = await parseCSV("./datasets/raw/covid-19-index.csv");
 const filteredIndexData = indexData.filter(
-  (row) => row.aggregation_level === "0"
+  (row) => row.aggregation_level === "0",
 );
 const countryIndices = filteredIndexData.map((row) => row.location_key);
 const countryMap = filteredIndexData.reduce((acc, row) => {
@@ -14,7 +14,7 @@ const countryMap = filteredIndexData.reduce((acc, row) => {
 const countrySet = new Set(countryIndices);
 
 const epidemiologyData = await parseCSV(
-  "./datasets/raw/covid-19-epidemiology.csv"
+  "./datasets/raw/covid-19-epidemiology.csv",
 );
 
 const data = [];

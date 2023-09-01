@@ -34,7 +34,7 @@ const GPUShareTreeMap: React.FC<GPUShareTreeMapProps> = ({
     {
       placement: "auto",
       modifiers: [{ name: "offset", options: { offset: [0, 8] } }],
-    }
+    },
   );
 
   const width = useWidth(parentRef);
@@ -45,7 +45,7 @@ const GPUShareTreeMap: React.FC<GPUShareTreeMapProps> = ({
   const dataDates = useMemo(() => Object.keys(gpuData), [gpuData]);
   const startDateIndex = useMemo(
     () => dataDates.indexOf("2020-01-01"),
-    [dataDates]
+    [dataDates],
   );
   const date =
     dataDates[
@@ -59,14 +59,14 @@ const GPUShareTreeMap: React.FC<GPUShareTreeMapProps> = ({
       ([key, value]) => ({
         name: key,
         children: value.sort((a, b) => b.percentage - a.percentage),
-      })
+      }),
     );
 
     const root = d3
       .hierarchy<GPUShareDatum>({ children: processedData } as any)
       .sum((d) => d.percentage)
       .sort(
-        (a, b) => b.value! - a.value!
+        (a, b) => b.value! - a.value!,
       ) as unknown as d3.HierarchyRectangularNode<GPUShareDatum>;
     d3.treemap<GPUShareDatum>().size([width, height]).padding(2)(root);
 
@@ -77,9 +77,9 @@ const GPUShareTreeMap: React.FC<GPUShareTreeMapProps> = ({
     () =>
       leaves.filter(
         (leaf) =>
-          leaf.x1 - leaf.x0 > 50 && leaf.y1 - leaf.y0 > 50 && leaf.data.name
+          leaf.x1 - leaf.x0 > 50 && leaf.y1 - leaf.y0 > 50 && leaf.data.name,
       ),
-    [leaves]
+    [leaves],
   );
 
   const categoryColorScale = useMemo(
@@ -93,7 +93,7 @@ const GPUShareTreeMap: React.FC<GPUShareTreeMapProps> = ({
           Colors.intelColor,
           "lightgrey",
         ]),
-    []
+    [],
   );
 
   useEffect(() => {
@@ -117,7 +117,7 @@ const GPUShareTreeMap: React.FC<GPUShareTreeMapProps> = ({
     const cells = d3
       .select(svgRef.current)
       .selectAll<SVGRectElement, d3.HierarchyRectangularNode<GPUShareDatum>>(
-        "rect"
+        "rect",
       )
       .data(leaves, (d) => d.data.name)
       .join(
@@ -151,7 +151,7 @@ const GPUShareTreeMap: React.FC<GPUShareTreeMapProps> = ({
             .attr("width", 0)
             .attr("height", 0)
             .attr("opacity", 0)
-            .remove()
+            .remove(),
       );
     cells
       .transition(t)

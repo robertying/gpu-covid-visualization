@@ -11,7 +11,7 @@ const processData = (data) =>
         ...acc,
         [d.date]: d.price,
       }),
-      {}
+      {},
     );
 
 fs.writeJSON("./datasets/eth.json", processData(ethData), {

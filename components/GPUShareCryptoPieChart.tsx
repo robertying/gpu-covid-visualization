@@ -33,7 +33,7 @@ const GPUShareCryptoPieChart: React.FC<GPUShareCryptoPieChartProps> = ({
     {
       placement: "auto",
       modifiers: [{ name: "offset", options: { offset: [0, 8] } }],
-    }
+    },
   );
 
   const width = useWidth(parentRef);
@@ -44,7 +44,7 @@ const GPUShareCryptoPieChart: React.FC<GPUShareCryptoPieChartProps> = ({
   const dataDates = useMemo(() => Object.keys(gpuData), [gpuData]);
   const startDateIndex = useMemo(
     () => dataDates.indexOf("2020-01-01"),
-    [dataDates]
+    [dataDates],
   );
   const date =
     dataDates[
@@ -76,7 +76,7 @@ const GPUShareCryptoPieChart: React.FC<GPUShareCryptoPieChartProps> = ({
           ? 1
           : b.manufacturer === "Other"
           ? -1
-          : b.percentage - a.percentage
+          : b.percentage - a.percentage,
       )(data);
   }, [date, gpuData]);
 
@@ -86,7 +86,7 @@ const GPUShareCryptoPieChart: React.FC<GPUShareCryptoPieChartProps> = ({
         .scaleLinear()
         .domain([0, 4700])
         .range([0, height / 2]),
-    [height]
+    [height],
   );
   const outerRadius = radiusScale(ethPrice) - 1;
 
@@ -96,7 +96,7 @@ const GPUShareCryptoPieChart: React.FC<GPUShareCryptoPieChartProps> = ({
         .arc<d3.PieArcDatum<GPUShareDatum>>()
         .innerRadius(0)
         .outerRadius(outerRadius),
-    [outerRadius]
+    [outerRadius],
   );
   const labelRadius = outerRadius + 8;
   const arcLabel = useMemo(
@@ -105,7 +105,7 @@ const GPUShareCryptoPieChart: React.FC<GPUShareCryptoPieChartProps> = ({
         .arc<d3.PieArcDatum<GPUShareDatum>>()
         .innerRadius(labelRadius)
         .outerRadius(labelRadius),
-    [labelRadius]
+    [labelRadius],
   );
 
   const labelData = useMemo(
@@ -115,14 +115,14 @@ const GPUShareCryptoPieChart: React.FC<GPUShareCryptoPieChartProps> = ({
           (d) =>
             outerRadius > height / 5 &&
             d.endAngle - d.startAngle > 0.15 &&
-            d.data.manufacturer !== "Other"
+            d.data.manufacturer !== "Other",
         )
         .map((d) => ({
           ...d,
           left: arcLabel.centroid(d)[0] + width / 2,
           top: arcLabel.centroid(d)[1] + height / 2 - 8,
         })),
-    [arcLabel, height, outerRadius, pieData, width]
+    [arcLabel, height, outerRadius, pieData, width],
   );
 
   const categoryColorScale = useMemo(
@@ -136,7 +136,7 @@ const GPUShareCryptoPieChart: React.FC<GPUShareCryptoPieChartProps> = ({
           Colors.intelColor,
           "lightgrey",
         ]),
-    []
+    [],
   );
 
   useEffect(() => {
@@ -185,7 +185,7 @@ const GPUShareCryptoPieChart: React.FC<GPUShareCryptoPieChartProps> = ({
             .transition(t)
             .attr("d", (d) => arc(d))
             .attr("fill", (d) => categoryColorScale(d.data.manufacturer)),
-        (exit) => exit.transition(t).attr("opacity", 0).remove()
+        (exit) => exit.transition(t).attr("opacity", 0).remove(),
       );
     pies
       .transition(t)

@@ -20,7 +20,7 @@ const animationDuration = 600;
 const _60SeriesDates = [new Date("2016-07-01"), new Date("2023-03-01")];
 const _30SeriesDates = [new Date("2020-01-01"), new Date("2023-03-01")];
 const _30SeriesGpus = gpus.filter(
-  (g) => g.startsWith("NVIDIA GeForce RTX 30") && !g.includes("Laptop")
+  (g) => g.startsWith("NVIDIA GeForce RTX 30") && !g.includes("Laptop"),
 );
 const _60SeriesGpus = [
   "NVIDIA GeForce RTX 3060",
@@ -64,7 +64,7 @@ const GPUCovidLineChart: React.FC<GPUCovidLineChartProps> = ({
     {
       placement: "auto",
       modifiers: [{ name: "offset", options: { offset: [0, 100] } }],
-    }
+    },
   );
 
   const width = useWidth(parentRef);
@@ -92,11 +92,11 @@ const GPUCovidLineChart: React.FC<GPUCovidLineChartProps> = ({
   const countries = useMemo(() => covidData.map((d) => d.name), [covidData]);
   const selectedCovidData = useMemo(
     () => covidData.filter((d) => selectedCountries.includes(d.name)),
-    [covidData, selectedCountries]
+    [covidData, selectedCountries],
   );
   const selectedGpuData = useMemo(
     () => gpuData.filter((d) => selectedGpus.includes(d.name)),
-    [gpuData, selectedGpus]
+    [gpuData, selectedGpus],
   );
 
   const hoveredGpuData = useMemo(
@@ -106,14 +106,14 @@ const GPUCovidLineChart: React.FC<GPUCovidLineChartProps> = ({
             .map((d) => ({
               name: d.name,
               value: d.values.find(
-                (v) => v.date.getTime() === hoveredDate.getTime()
+                (v) => v.date.getTime() === hoveredDate.getTime(),
               ),
             }))
             .sort(
-              (a, b) => (b.value?.percentage ?? 0) - (a.value?.percentage ?? 0)
+              (a, b) => (b.value?.percentage ?? 0) - (a.value?.percentage ?? 0),
             )
         : [],
-    [hoveredDate, selectedGpuData]
+    [hoveredDate, selectedGpuData],
   );
 
   const maxShare = useMemo(
@@ -122,9 +122,9 @@ const GPUCovidLineChart: React.FC<GPUCovidLineChartProps> = ({
         Object.values(selectedGpuData)
           .map((o) => o.values)
           .flat(),
-        (d) => d.percentage
+        (d) => d.percentage,
       )?.percentage ?? 0) * 100,
-    [selectedGpuData]
+    [selectedGpuData],
   );
   const maxCases = useMemo(
     () =>
@@ -132,9 +132,9 @@ const GPUCovidLineChart: React.FC<GPUCovidLineChartProps> = ({
         Object.values(selectedCovidData)
           .map((o) => o.values)
           .flat(),
-        (d) => d.newCases
+        (d) => d.newCases,
       )?.newCases ?? 0,
-    [selectedCovidData]
+    [selectedCovidData],
   );
 
   const xScale = useMemo(
@@ -144,10 +144,10 @@ const GPUCovidLineChart: React.FC<GPUCovidLineChartProps> = ({
         .domain(
           showOnly30seriesData || showCovidDates
             ? _30SeriesDates
-            : _60SeriesDates
+            : _60SeriesDates,
         )
         .range([Margins.left, width - Margins.right]),
-    [showOnly30seriesData, showCovidDates, width]
+    [showOnly30seriesData, showCovidDates, width],
   );
   const gpuShareScale = useMemo(
     () =>
@@ -156,7 +156,7 @@ const GPUCovidLineChart: React.FC<GPUCovidLineChartProps> = ({
         .domain([0, maxShare])
         .range([height - Margins.bottom, Margins.top])
         .nice(),
-    [height, maxShare]
+    [height, maxShare],
   );
   const newCaseScale = useMemo(
     () =>
@@ -165,7 +165,7 @@ const GPUCovidLineChart: React.FC<GPUCovidLineChartProps> = ({
         .domain([0, maxCases])
         .range([height - Margins.bottom, Margins.top])
         .nice(),
-    [height, maxCases]
+    [height, maxCases],
   );
   const gpuColorScale = useMemo(
     () =>
@@ -173,7 +173,7 @@ const GPUCovidLineChart: React.FC<GPUCovidLineChartProps> = ({
         .scaleOrdinal<string>()
         .domain(selectedGpuData.map((d) => d.name))
         .range(d3.schemeDark2),
-    [selectedGpuData]
+    [selectedGpuData],
   );
 
   const gpuShareLine = useMemo(
@@ -182,7 +182,7 @@ const GPUCovidLineChart: React.FC<GPUCovidLineChartProps> = ({
         .line<GPUShareDatumWithDate>()
         .x((d) => xScale(d.date))
         .y((d) => gpuShareScale(d.percentage * 100)),
-    [xScale, gpuShareScale]
+    [xScale, gpuShareScale],
   );
   const newCaseLine = useMemo(
     () =>
@@ -190,7 +190,7 @@ const GPUCovidLineChart: React.FC<GPUCovidLineChartProps> = ({
         .line<CovidCaseDatumWithDate>()
         .x((d) => xScale(d.date))
         .y((d) => newCaseScale(d.newCases)),
-    [xScale, newCaseScale]
+    [xScale, newCaseScale],
   );
 
   useEffect(() => {
@@ -204,7 +204,7 @@ const GPUCovidLineChart: React.FC<GPUCovidLineChartProps> = ({
             ...d,
             date: new Date(d.date),
           })),
-        })
+        }),
       );
       const covidData = Object.entries(covidCasesByCountryData).map(
         ([key, value]) => ({
@@ -213,7 +213,7 @@ const GPUCovidLineChart: React.FC<GPUCovidLineChartProps> = ({
             ...d,
             date: new Date(d.date),
           })),
-        })
+        }),
       );
       setGpuData(gpuData);
       setCovidData(covidData);
@@ -272,7 +272,7 @@ const GPUCovidLineChart: React.FC<GPUCovidLineChartProps> = ({
             .transition(t)
             .attr("d", (d) => gpuShareLine(d.values))
             .attr("stroke", (d) => gpuColorScale(d.name)),
-        (exit) => exit.transition(t).attr("opacity", 0).remove()
+        (exit) => exit.transition(t).attr("opacity", 0).remove(),
       );
     gpuLines
       .transition(t)
@@ -296,7 +296,7 @@ const GPUCovidLineChart: React.FC<GPUCovidLineChartProps> = ({
             .style("pointer-events", "none"),
         (update) =>
           update.transition(t).attr("d", (d) => newCaseLine(d.values)),
-        (exit) => exit.transition(t).attr("opacity", 0).remove()
+        (exit) => exit.transition(t).attr("opacity", 0).remove(),
       );
     covidLines
       .transition(t)

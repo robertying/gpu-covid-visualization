@@ -35,7 +35,7 @@ const GPUPerformanceShareScatterPlot: React.FC<
     {
       placement: "auto",
       modifiers: [{ name: "offset", options: { offset: [0, 8] } }],
-    }
+    },
   );
 
   const width = useWidth(parentRef);
@@ -50,7 +50,7 @@ const GPUPerformanceShareScatterPlot: React.FC<
 
   const data = useMemo(
     () => gpuData[date]?.filter((d) => gpuBenchmarkData[d.name]) ?? [],
-    [gpuData, date]
+    [gpuData, date],
   );
 
   const xScale = useMemo(
@@ -60,7 +60,7 @@ const GPUPerformanceShareScatterPlot: React.FC<
         .domain([0, 16])
         .range([Margins.left, width - Margins.right])
         .nice(),
-    [width]
+    [width],
   );
   const yScale = useMemo(
     () =>
@@ -69,7 +69,7 @@ const GPUPerformanceShareScatterPlot: React.FC<
         .domain([0, 21000])
         .range([height - Margins.bottom, Margins.top])
         .nice(),
-    [height]
+    [height],
   );
 
   useEffect(() => {
@@ -105,7 +105,9 @@ const GPUPerformanceShareScatterPlot: React.FC<
             .attr("cx", (d) => xScale(d.percentage * 100))
             .attr("cy", (d) => yScale(gpuBenchmarkData[d.name]))
             .attr("fill", (d) =>
-              d.manufacturer === "NVIDIA" ? Colors.nvidiaColor : Colors.amdColor
+              d.manufacturer === "NVIDIA"
+                ? Colors.nvidiaColor
+                : Colors.amdColor,
             )
             .attr("opacity", 0)
             .attr("r", 5)
@@ -128,16 +130,18 @@ const GPUPerformanceShareScatterPlot: React.FC<
             .attr("cx", (d) => xScale(d.percentage * 100))
             .attr("cy", (d) => yScale(gpuBenchmarkData[d.name]))
             .attr("fill", (d) =>
-              d.manufacturer === "NVIDIA" ? Colors.nvidiaColor : Colors.amdColor
+              d.manufacturer === "NVIDIA"
+                ? Colors.nvidiaColor
+                : Colors.amdColor,
             ),
-        (exit) => exit.transition(t).attr("opacity", 0).attr("r", 0).remove()
+        (exit) => exit.transition(t).attr("opacity", 0).attr("r", 0).remove(),
       );
     dots
       .transition(t)
       .attr("cx", (d) => xScale(d.percentage * 100))
       .attr("cy", (d) => yScale(gpuBenchmarkData[d.name]))
       .attr("fill", (d) =>
-        d.manufacturer === "NVIDIA" ? Colors.nvidiaColor : Colors.amdColor
+        d.manufacturer === "NVIDIA" ? Colors.nvidiaColor : Colors.amdColor,
       )
       .attr("opacity", 0.75)
       .attr("r", 5)
@@ -163,7 +167,7 @@ const GPUPerformanceShareScatterPlot: React.FC<
             .transition(t)
             .attr("x", (d) => xScale(d.percentage * 100))
             .attr("y", (d) => yScale(gpuBenchmarkData[d.name]) - 9),
-        (exit) => exit.transition(t).attr("opacity", 0).remove()
+        (exit) => exit.transition(t).attr("opacity", 0).remove(),
       );
     labels
       .transition(t)

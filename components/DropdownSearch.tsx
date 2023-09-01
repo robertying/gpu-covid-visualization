@@ -25,7 +25,7 @@ const DropdownSearch: React.FC<DropdownSearchProps> = ({
     {
       placement: "bottom",
       modifiers: [{ name: "offset", options: { offset: [0, 4] } }],
-    }
+    },
   );
 
   const [searchQuery, setSearchQuery] = useState<string>("");
