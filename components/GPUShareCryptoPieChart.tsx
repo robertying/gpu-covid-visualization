@@ -75,8 +75,8 @@ const GPUShareCryptoPieChart: React.FC<GPUShareCryptoPieChartProps> = ({
         a.manufacturer === "Other"
           ? 1
           : b.manufacturer === "Other"
-          ? -1
-          : b.percentage - a.percentage,
+            ? -1
+            : b.percentage - a.percentage,
       )(data);
   }, [date, gpuData]);
 

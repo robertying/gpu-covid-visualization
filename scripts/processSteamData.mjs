@@ -22,11 +22,11 @@ const dataWithManufacturer = dataGPUOnly.map((row) => ({
     row.name.toLowerCase().includes("geforce")
       ? "NVIDIA"
       : row.name.toLowerCase().includes("amd") ||
-        row.name.toLowerCase().includes("ati")
-      ? "AMD"
-      : row.name.toLowerCase().includes("intel")
-      ? "Intel"
-      : "Other",
+          row.name.toLowerCase().includes("ati")
+        ? "AMD"
+        : row.name.toLowerCase().includes("intel")
+          ? "Intel"
+          : "Other",
 }));
 
 const uniqueGPUs = uniq(dataWithManufacturer.map((row) => row.name)).sort();
