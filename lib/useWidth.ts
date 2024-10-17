@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-const useWidth = (ref: React.RefObject<HTMLElement>) => {
+const useWidth = (ref: React.RefObject<HTMLElement | null>) => {
   const [width, setWidth] = useState(0);
 
   useEffect(() => {
