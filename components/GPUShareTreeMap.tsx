@@ -277,7 +277,7 @@ const GPUShareTreeMap: React.FC<GPUShareTreeMapProps> = ({
         {...popperAttributes.popper}
       >
         {popperReferenceElement && (
-          <div className="bg-white dark:bg-black text-black dark:text-white rounded shadow-lg dark:shadow-none dark:border-gray-600 dark:border p-2">
+          <div className="bg-white dark:bg-black text-black dark:text-white rounded-sm shadow-lg dark:shadow-none dark:border-gray-600 dark:border p-2">
             <div className="text-sm font-semibold">
               {(popperReferenceElement as any).__data__.data.name}
             </div>

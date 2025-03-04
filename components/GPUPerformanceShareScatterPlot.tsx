@@ -263,7 +263,7 @@ const GPUPerformanceShareScatterPlot: React.FC<
               onChange={handleDateChange}
             />
             <button
-              className="bg-gray-200 hover:bg-gray-300 active:bg-opacity-60 dark:bg-gray-700 dark:hover:bg-gray-600 dark:active:bg-opacity-60 font-semibold text-base py-1 px-2 w-20 rounded"
+              className="bg-gray-200 hover:bg-gray-300 active:bg-opacity-60 dark:bg-gray-700 dark:hover:bg-gray-600 dark:active:bg-opacity-60 font-semibold text-base py-1 px-2 w-20 rounded-sm"
               onClick={handleStartStop}
             >
               {playing ? "Pause" : "Resume"}
@@ -312,7 +312,7 @@ const GPUPerformanceShareScatterPlot: React.FC<
         {...popperAttributes.popper}
       >
         {popperReferenceElement && (
-          <div className="bg-white dark:bg-black rounded shadow-lg dark:shadow-none dark:border-gray-600 dark:border p-2">
+          <div className="bg-white dark:bg-black rounded-sm shadow-lg dark:shadow-none dark:border-gray-600 dark:border p-2">
             <div className="text-sm font-semibold">
               {(popperReferenceElement as any).__data__.name}
             </div>

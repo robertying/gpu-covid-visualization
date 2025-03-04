@@ -45,7 +45,7 @@ const DropdownSearch: React.FC<DropdownSearchProps> = ({
     <div className="relative flex items-center">
       <input
         ref={inputRef}
-        className="bg-gray-100 hover:bg-gray-300 dark:bg-gray-800 dark:hover:bg-gray-600 font-semibold text-sm py-1 px-2 rounded w-full"
+        className="bg-gray-100 hover:bg-gray-300 dark:bg-gray-800 dark:hover:bg-gray-600 font-semibold text-sm py-1 px-2 rounded-sm w-full"
         type="text"
         placeholder={placeholder}
         value={searchQuery}
@@ -78,7 +78,7 @@ const DropdownSearch: React.FC<DropdownSearchProps> = ({
       >
         <div
           className={
-            "bg-white dark:bg-black shadow-lg dark:shadow-none dark:border-gray-600 dark:border rounded text-sm " +
+            "bg-white dark:bg-black shadow-lg dark:shadow-none dark:border-gray-600 dark:border rounded-sm text-sm " +
             (searchQuery ? "" : "invisible")
           }
           style={{ width }}

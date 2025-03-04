@@ -333,7 +333,7 @@ const GPUShareCryptoPieChart: React.FC<GPUShareCryptoPieChartProps> = ({
         {...popperAttributes.popper}
       >
         {popperReferenceElement && (
-          <div className="bg-white dark:bg-black rounded shadow-lg dark:shadow-none dark:border-gray-600 dark:border p-2">
+          <div className="bg-white dark:bg-black rounded-sm shadow-lg dark:shadow-none dark:border-gray-600 dark:border p-2">
             <div className="text-sm font-semibold">
               {(popperReferenceElement as any).__data__.data.name}
             </div>

@@ -431,7 +431,7 @@ const GPUCovidLineChart: React.FC<GPUCovidLineChartProps> = ({
           <Chip label={selectedCountries[0]} />
           {showCustomizedControls && (
             <button
-              className="bg-gray-200 hover:bg-gray-300 active:bg-opacity-60 dark:bg-gray-700 dark:hover:bg-gray-600 dark:active:bg-opacity-60 font-semibold text-sm py-1 px-2 w-44 rounded"
+              className="bg-gray-200 hover:bg-gray-300 active:bg-opacity-60 dark:bg-gray-700 dark:hover:bg-gray-600 dark:active:bg-opacity-60 font-semibold text-sm py-1 px-2 w-44 rounded-sm"
               onClick={handleToggleCovidDates}
             >
               Toggle COVID-19 Dates
@@ -506,7 +506,7 @@ const GPUCovidLineChart: React.FC<GPUCovidLineChartProps> = ({
           {...popperAttributes.popper}
         >
           {hoveredDate && (
-            <div className="bg-white dark:bg-black rounded shadow-lg dark:shadow-none dark:border-gray-600 dark:border p-3 space-y-2">
+            <div className="bg-white dark:bg-black rounded-sm shadow-lg dark:shadow-none dark:border-gray-600 dark:border p-3 space-y-2">
               <div className="text-sm font-semibold">
                 {dayjs(hoveredDate).format("MMM YYYY")}
               </div>
