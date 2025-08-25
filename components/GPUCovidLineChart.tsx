@@ -354,7 +354,7 @@ const GPUCovidLineChart: React.FC<GPUCovidLineChartProps> = ({
         top: y + rect.top,
         left: closestX + rect.left,
       }),
-    } as any);
+    } as Element);
 
     if (tooltipLineRef.current) {
       d3.select(tooltipLineRef.current)
@@ -446,7 +446,7 @@ const GPUCovidLineChart: React.FC<GPUCovidLineChartProps> = ({
             transform={`translate(0, ${height - Margins.bottom})`}
           >
             <text
-              textAnchor="center"
+              textAnchor="middle"
               fill="currentColor"
               fontSize="0.75rem"
               fontWeight="bold"

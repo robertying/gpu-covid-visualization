@@ -245,7 +245,6 @@ const GPUPerformanceShareScatterPlot: React.FC<
         </div>
         <div className="flex items-center justify-between">
           {dateTransitions((style, date) => (
-            // @ts-ignore
             <animated.div
               className="absolute tabular-nums font-mono ml-1"
               style={style}

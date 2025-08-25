@@ -116,7 +116,7 @@ const HomePage: React.FC = () => {
 
     const parallaxContainer = parallaxRef.current.container
       .current as HTMLDivElement;
-    const handleScroll = throttle((e: Event) => {
+    const handleScroll = throttle(() => {
       if (parallaxRef.current) {
         setParallaxOffset(
           parallaxRef.current.current / parallaxRef.current.space,

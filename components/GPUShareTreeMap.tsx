@@ -242,7 +242,6 @@ const GPUShareTreeMap: React.FC<GPUShareTreeMapProps> = ({
           </div>
         </div>
         {dateTransitions((style, date) => (
-          // @ts-ignore
           <animated.div
             className="absolute tabular-nums font-mono ml-1"
             style={style}
@@ -258,7 +257,6 @@ const GPUShareTreeMap: React.FC<GPUShareTreeMapProps> = ({
         </div>
         <div className="pointer-events-none">
           {labelTransitions((style, leaf) => (
-            // @ts-ignore
             <animated.div
               key={leaf.data.name}
               className="absolute flex items-center justify-center p-2"

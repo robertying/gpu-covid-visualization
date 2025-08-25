@@ -281,7 +281,6 @@ const GPUShareCryptoPieChart: React.FC<GPUShareCryptoPieChartProps> = ({
         <div className="flex items-center justify-between">
           <div>
             {dateTransitions((style, date) => (
-              // @ts-ignore
               <animated.div
                 className="absolute tabular-nums font-mono ml-1"
                 style={style}
@@ -293,7 +292,6 @@ const GPUShareCryptoPieChart: React.FC<GPUShareCryptoPieChartProps> = ({
           <div className="ml-auto relative">
             <div className="absolute right-10 w-36">ETH-USD:</div>
             {digitTransitions((style, digit) => (
-              // @ts-ignore
               <animated.span
                 className="absolute tabular-nums font-mono"
                 style={style}
@@ -316,7 +314,6 @@ const GPUShareCryptoPieChart: React.FC<GPUShareCryptoPieChartProps> = ({
         </div>
         <div className="pointer-events-none">
           {labelTransitions((style, d) => (
-            // @ts-ignore
             <animated.div
               key={d.data.name}
               className="absolute text-black dark:text-white text-sm leading-none"
