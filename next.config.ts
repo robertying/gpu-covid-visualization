@@ -8,9 +8,7 @@ const nextConfig: NextConfig = {
   },
   output: "standalone",
   compress: false,
-  experimental: {
-    reactCompiler: true,
-  },
+  reactCompiler: true,
   async redirects() {
     return [
       {
