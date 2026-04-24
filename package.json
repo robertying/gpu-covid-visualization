@@ -2,7 +2,7 @@
   "name": "visualization",
   "version": "1.0.0",
   "private": true,
-  "packageManager": "pnpm@10.33.0+sha512.10568bb4a6afb58c9eb3630da90cc9516417abebd3fabbe6739f0ae795728da1491e9db5a544c76ad8eb7570f5c4bb3d6c637b2cb41bfdcdb47fa823c8649319",
+  "packageManager": "pnpm@10.33.2+sha512.a90faf6feeab71ad6c6e57f94e0fe1a12f5dcc22cd754db40ae9593eb6a3e0b6b12e3540218bb37ae083404b1f2ce6db2a4121e979829b4aff94b99f49da1cf8",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
@@ -14,7 +14,7 @@
     "@popperjs/core": "2.11.8",
     "@react-spring/parallax": "10.0.3",
     "@react-spring/web": "10.0.3",
-    "@tailwindcss/postcss": "4.2.2",
+    "@tailwindcss/postcss": "4.2.4",
     "@tailwindcss/typography": "0.5.19",
     "@types/d3": "7.4.3",
     "@types/lodash-es": "4.17.12",
@@ -26,18 +26,18 @@
     "d3": "7.9.0",
     "dayjs": "1.11.20",
     "eslint": "9.39.4",
-    "eslint-config-next": "16.2.3",
+    "eslint-config-next": "16.2.4",
     "eslint-config-prettier": "10.1.8",
     "fs-extra": "11.3.4",
     "fuse.js": "7.3.0",
     "lodash-es": "4.18.1",
-    "next": "16.2.3",
-    "postcss": "8.5.9",
-    "prettier": "3.8.2",
+    "next": "16.2.4",
+    "postcss": "8.5.10",
+    "prettier": "3.8.3",
     "react": "19.2.5",
     "react-dom": "19.2.5",
     "react-popper": "2.3.0",
-    "tailwindcss": "4.2.2",
-    "typescript": "6.0.2"
+    "tailwindcss": "4.2.4",
+    "typescript": "6.0.3"
   }
 }
