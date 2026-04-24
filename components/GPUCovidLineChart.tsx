@@ -85,7 +85,15 @@ const GPUCovidLineChart: React.FC<GPUCovidLineChartProps> = ({
   const [selectedCountries, setSelectedCountries] = useState<string[]>([
     "United States of America",
   ]);
-  const [selectedGpus, setSelectedGpus] = useState<string[]>(_30SeriesGpus);
+  const [selectedGpus, setSelectedGpus] = useState<string[]>(
+    showOnly30seriesData ? _30SeriesGpus : _60SeriesGpus,
+  );
+  const [prevShowOnly30seriesData, setPrevShowOnly30seriesData] =
+    useState(showOnly30seriesData);
+  if (showOnly30seriesData !== prevShowOnly30seriesData) {
+    setPrevShowOnly30seriesData(showOnly30seriesData);
+    setSelectedGpus(showOnly30seriesData ? _30SeriesGpus : _60SeriesGpus);
+  }
   const [hoveredDate, setHoveredDate] = useState<Date | null>(null);
   const [showCovidDates, setShowCovidDates] = useState(false);
 
@@ -220,14 +228,6 @@ const GPUCovidLineChart: React.FC<GPUCovidLineChartProps> = ({
       setLoading(false);
     })();
   }, []);
-
-  useEffect(() => {
-    if (showOnly30seriesData) {
-      setSelectedGpus(_30SeriesGpus);
-    } else {
-      setSelectedGpus(_60SeriesGpus);
-    }
-  }, [showOnly30seriesData]);
 
   useEffect(() => {
     if (

@@ -43,7 +43,12 @@ const GPUPerformanceShareScatterPlot: React.FC<
   const [loading, setLoading] = useState(true);
   const [gpuData, setGpuData] = useState<Record<string, GPUShareDatum[]>>({});
   const [index, setIndex] = useState(0);
-  const [playing, setPlaying] = useState(false);
+  const [playing, setPlaying] = useState(inView);
+  const [prevInView, setPrevInView] = useState(inView);
+  if (inView !== prevInView) {
+    setPrevInView(inView);
+    setPlaying(inView);
+  }
 
   const dataDates = useMemo(() => Object.keys(gpuData), [gpuData]);
   const date = dataDates[index];
@@ -179,16 +184,7 @@ const GPUPerformanceShareScatterPlot: React.FC<
   }, [data, xScale, yScale]);
 
   useEffect(() => {
-    if (inView) {
-      setPlaying(true);
-    } else {
-      setPlaying(false);
-    }
-  }, [inView]);
-
-  useEffect(() => {
-    if (playing) {
-      setIndex((v) => (v + 1) % dataDates.length);
+    if (playing && dataDates.length > 0) {
       const interval = setInterval(() => {
         setIndex((v) => (v + 1) % dataDates.length);
       }, animationDuration);

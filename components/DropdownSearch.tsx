@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useMemo, useRef, useState } from "react";
 import { usePopper } from "react-popper";
 import Fuse from "fuse.js";
 import useWidth from "lib/useWidth";
@@ -29,16 +29,15 @@ const DropdownSearch: React.FC<DropdownSearchProps> = ({
   );
 
   const [searchQuery, setSearchQuery] = useState<string>("");
-  const [searchResults, setSearchResults] = useState<string[]>([]);
 
   const handleSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
     setSearchQuery(e.target.value);
   };
 
-  useEffect(() => {
+  const searchResults = useMemo(() => {
     const fuse = new Fuse(data);
     const results = fuse.search(searchQuery, { limit: 5 });
-    setSearchResults(results.map((result) => result.item));
+    return results.map((result) => result.item);
   }, [data, searchQuery]);
 
   return (
