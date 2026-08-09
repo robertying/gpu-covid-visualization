@@ -95,7 +95,6 @@ importers:
       tailwindcss:
         specifier: 4.3.3
         version: 4.3.3
-    devDependencies:
       typescript:
         specifier: npm:@typescript/typescript6@6.0.2
         version: '@typescript/typescript6@6.0.2'
