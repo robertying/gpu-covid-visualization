@@ -46,7 +46,8 @@ interface CompactCovidCases {
 }
 const DAY = 24 * 60 * 60 * 1000;
 
-// Fetched as plain JSON: bundling the data made a 15 MB script chunk.
+// Fetched as plain JSON rather than imported, which would bundle it into a
+// 15 MB script chunk.
 export const getCovidCasesByCountryData = async () => {
   const response = await fetch("/covid-cases.json");
   if (!response.ok) {
