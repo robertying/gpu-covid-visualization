@@ -19,7 +19,7 @@ In this interactive visual explainer, we delve into the world of PC gaming hardw
 
 Raw datasets can be found in [datasets/raw](./datasets/raw).
 
-Processed datasets can be found in [datasets](./datasets).
+Processed datasets can be found in [datasets](./datasets), except the COVID-19 cases, which the page fetches from [public/covid-cases.json](./public/covid-cases.json).
 
 ### Data Processing
 

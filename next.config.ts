@@ -1,13 +1,9 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  modularizeImports: {
-    lodash: {
-      transform: "lodash/{{member}}",
-    },
-  },
   output: "standalone",
   compress: false,
+  poweredByHeader: false,
   reactCompiler: true,
   async redirects() {
     return [

@@ -39,6 +39,7 @@ const GPUShareCryptoPieChart: React.FC<GPUShareCryptoPieChartProps> = ({
   const width = useWidth(parentRef);
 
   const [loading, setLoading] = useState(true);
+  const [failed, setFailed] = useState(false);
   const [gpuData, setGpuData] = useState<Record<string, GPUShareDatum[]>>({});
 
   const dataDates = useMemo(() => Object.keys(gpuData), [gpuData]);
@@ -144,7 +145,7 @@ const GPUShareCryptoPieChart: React.FC<GPUShareCryptoPieChartProps> = ({
       const gpuSharesByDateData = await getGpuSharesByDateData();
       setGpuData(gpuSharesByDateData);
       setLoading(false);
-    })();
+    })().catch(() => setFailed(true));
   }, []);
 
   useEffect(() => {
@@ -243,7 +244,11 @@ const GPUShareCryptoPieChart: React.FC<GPUShareCryptoPieChartProps> = ({
         className="w-full flex justify-center items-center bg-gray-200 dark:bg-gray-700"
         style={{ height }}
       >
-        <div>Loading...</div>
+        <div>
+          {failed
+            ? "Couldn't load the data. Reload the page to try again."
+            : "Loading..."}
+        </div>
       </div>
     );
   }
