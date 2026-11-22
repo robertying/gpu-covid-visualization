@@ -70,6 +70,7 @@ const GPUCovidLineChart: React.FC<GPUCovidLineChartProps> = ({
   const width = useWidth(parentRef);
 
   const [loading, setLoading] = useState(true);
+  const [failed, setFailed] = useState(false);
   const [gpuData, setGpuData] = useState<
     {
       name: string;
@@ -226,7 +227,7 @@ const GPUCovidLineChart: React.FC<GPUCovidLineChartProps> = ({
       setGpuData(gpuData);
       setCovidData(covidData);
       setLoading(false);
-    })();
+    })().catch(() => setFailed(true));
   }, []);
 
   useEffect(() => {
@@ -387,7 +388,11 @@ const GPUCovidLineChart: React.FC<GPUCovidLineChartProps> = ({
         className="w-full flex justify-center items-center bg-gray-200 dark:bg-gray-700"
         style={{ height }}
       >
-        <div>Loading...</div>
+        <div>
+          {failed
+            ? "Couldn't load the data. Reload the page to try again."
+            : "Loading..."}
+        </div>
       </div>
     );
   }

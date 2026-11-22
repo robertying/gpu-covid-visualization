@@ -1,6 +1,7 @@
 import fs from "fs-extra";
 import { groupBy } from "lodash-es";
 import { parseCSV } from "./parseCSV.mjs";
+import { compactCovidCases } from "./compactCovidCases.mjs";
 
 const indexData = await parseCSV("./datasets/raw/covid-19-index.csv");
 const filteredIndexData = indexData.filter(
@@ -31,6 +32,5 @@ for (const row of epidemiologyData) {
 
 const groupedData = groupBy(data, "name");
 
-await fs.writeJSON("./datasets/covid-cases.json", groupedData, {
-  spaces: 2,
-});
+// Served as a static file and fetched by the line chart; see data/index.ts.
+await fs.writeJSON("./public/covid-cases.json", compactCovidCases(groupedData));
